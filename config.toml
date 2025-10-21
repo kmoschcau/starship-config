@@ -83,7 +83,7 @@ style = "bg:yellow"
 format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 
 [git_metrics]
-format = '[(+$added )(-$deleted )](bg:yellow)'
+format = '[(+$added )(-$deleted )](fg:crust bg:yellow)'
 disabled = false
 
 [git_status]
