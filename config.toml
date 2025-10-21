@@ -8,6 +8,9 @@ $username\
 $directory\
 [](bg:yellow fg:peach)\
 $git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
 $git_status\
 [](fg:yellow bg:green)\
 $c\
@@ -78,6 +81,10 @@ truncation_symbol = "…/"
 symbol = ""
 style = "bg:yellow"
 format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
+
+[git_metrics]
+format = '[(+$added )(-$deleted )](bg:yellow)'
+disabled = false
 
 [git_status]
 style = "bg:yellow"
