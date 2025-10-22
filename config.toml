@@ -71,6 +71,13 @@ format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 style = "bg:yellow"
 symbol = ""
 
+[git_commit]
+format = '[\($hash( $tag)\) ]($style)'
+style = "fg:crust bg:yellow"
+tag_disabled = false
+tag_max_candidates = 100
+tag_symbol = "🏷 "
+
 [git_state]
 format = '[\([$state](bold fg:crust bg:yellow)( $progress_current/$progress_total)\) ](fg:crust bg:yellow)'
 
