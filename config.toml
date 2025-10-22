@@ -7,7 +7,6 @@ $username\
 [](bg:peach fg:red)\
 $directory\
 [](bg:yellow fg:peach)\
-[ ](bg:yellow)\
 $git_branch\
 $git_commit\
 $git_state\
@@ -77,13 +76,13 @@ truncation_symbol = "…/"
 "~/Pictures" = "~/ "
 
 [git_branch]
-format = '[$symbol$branch ]($style)'
+format = '[ $symbol$branch ]($style)'
 only_attached = true
 style = "bg:yellow fg:crust"
 symbol = "󰘬 "
 
 [git_commit]
-format = '[(󰜘 $hash )($tag )]($style)'
+format = '[ (󰜘 $hash )($tag )]($style)'
 style = "bg:yellow fg:crust"
 tag_disabled = false
 tag_max_candidates = 100
