@@ -1,69 +1,69 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](fg:red)\
+[](fg:crust)\
 $os\
 $username\
-[](bg:peach fg:red)\
+[](bg:mantle fg:crust)\
 $directory\
-[](bg:yellow fg:peach)\
+[](bg:base fg:mantle)\
 $git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
 $git_status\
-[](bg:blue fg:yellow)\
+$git_metrics\
+[](bg:mantle fg:base)\
 $jobs\
-[](bg:lavender fg:blue)\
+[](bg:crust fg:mantle)\
 $shell\
-[ ](fg:lavender)\
+[ ](fg:crust)\
 $cmd_duration\
 $line_break\
 $character"""
 
-palette = 'catppuccin_mocha'
+palette = 'catppuccin_latte'
 
 [os]
 disabled = false
 format = '[$symbol]($style)'
-style = "bg:red fg:crust"
+style = "bg:crust fg:text"
 
 [os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = "󰣇 "
-Artix = "󰣇 "
-CentOS = " "
-Debian = "󰣚 "
-EndeavourOS = "󰣇 "
-Fedora = "󰣛 "
-Gentoo = "󰣨 "
-Linux = "󰌽 "
-Macos = "󰀵 "
-Manjaro = " "
-Mint = "󰣭 "
-Raspbian = "󰐿 "
-RedHatEnterprise = "󱄛 "
-Redhat = "󱄛 "
-SUSE = " "
-Ubuntu = "󰕈 "
-Windows = " "
+Alpine = "[ ](bg:crust fg:sapphire)"
+Amazon = "[ ](bg:crust fg:yellow)"
+Android = "[ ](bg:crust fg:green)"
+Arch = "[󰣇 ](bg:crust fg:sky)"
+Artix = "[󰣇 ](bg:crust fg:sky)"
+CentOS = "[ ](bg:crust fg:pink)"
+Debian = "[󰣚 ](bg:crust fg:maroon)"
+EndeavourOS = "[󰣇 ](bg:crust fg:sky)"
+Fedora = "[󰣛 ](bg:crust fg:sky)"
+Gentoo = "[󰣨 ](bg:crust fg:mauve)"
+Linux = "[󰌽 ](bg:crust fg:text)"
+Macos = "[󰀵 ](bg:crust fg:base)"
+Manjaro = "[ ](bg:crust fg:green)"
+Mint = "[󰣭 ](bg:crust fg:green)"
+Raspbian = "[󰐿 ](bg:crust fg:maroon)"
+RedHatEnterprise = "[󱄛 ](bg:crust fg:red)"
+Redhat = "[󱄛 ](bg:crust fg:red)"
+SUSE = "[ ](bg:crust fg:green)"
+Ubuntu = "[󰕈 ](bg:crust fg:peach)"
+Windows = "[ ](bg:crust fg:sky)"
 
 [username]
 format = '[ $user ]($style)'
-style_root = "bg:red fg:crust"
-style_user = "bg:red fg:crust"
+style_root = "bg:crust fg:red"
+style_user = "bg:crust fg:red"
 
 [directory]
-before_repo_root_style = "bg:peach fg:crust"
+before_repo_root_style = "bg:mantle fg:text"
 format = "[ $path ]($style)"
 repo_root_format = """
 [ $before_root_path]($before_repo_root_style)\
-[$repo_root 󰊢 ]($repo_root_style)\
+[$repo_root [󰊢](bg:mantle fg:peach) ]($repo_root_style)\
 [$path ]($style)"""
-repo_root_style = "bg:peach fg:crust"
-style = "bg:peach fg:crust"
+repo_root_style = "bg:mantle fg:text"
+style = "bg:mantle fg:text"
 truncate_to_repo = false
 truncation_length = 3
 truncation_symbol = "…/"
@@ -78,36 +78,26 @@ truncation_symbol = "…/"
 [git_branch]
 format = '[ $symbol$branch ]($style)'
 only_attached = true
-style = "bg:yellow fg:crust"
+style = "bg:base fg:text"
 symbol = "󰘬 "
 
 [git_commit]
 format = '[ (󰜘 $hash )($tag )]($style)'
-style = "bg:yellow fg:crust"
+style = "bg:base fg:text"
 tag_disabled = false
 tag_max_candidates = 100
 tag_symbol = "🏷 "
 
 [git_state]
 format = '[\($state( $progress_current/$progress_total)\) ]($style)'
-style = 'bold bg:yellow fg:crust'
-
-[git_metrics]
-added_style = "bg:yellow fg:crust"
-deleted_style = "bg:yellow fg:crust"
-disabled = false
-format = """
-[\
-([ $added]($added_style) )\
-([ $deleted]($deleted_style) )\
-](bg:yellow fg:crust)"""
+style = 'bold bg:base fg:text'
 
 [git_status]
-ahead = " $count"
-behind = " $count"
-conflicted = " $count"
-deleted = " $count"
-diverged = "(  $ahead_count)(  $behind_count)"
+ahead = "[ $count](bg:base fg:sky)"
+behind = "[ $count](bg:base fg:sky)"
+conflicted = "[ $count](bg:base fg:peach)"
+deleted = "[ $count](bg:base fg:red)"
+diverged = "[(  $ahead_count)(  $behind_count)](bg:base fg:sky)"
 format = """
 [\
 ($up_to_date )\
@@ -123,29 +113,39 @@ format = """
 ($typechanged )\
 ($untracked )\
 ]($style)"""
-modified = " $count"
-renamed = " $count"
-staged = " $count"
-stashed = '󰠘 $count'
-style = "bg:yellow fg:crust"
+modified = "[ $count](bg:base fg:mauve)"
+renamed = "[ $count](bg:base fg:mauve)"
+staged = "[ $count](bg:base fg:teal)"
+stashed = '[󰠘 $count](bg:base fg:yellow)'
+style = "bg:base fg:text"
 typechanged = ""
-untracked = " $count"
+untracked = "[ $count](bg:base fg:surface2)"
 up_to_date = ""
+
+[git_metrics]
+added_style = "bg:base fg:green"
+deleted_style = "bg:base fg:red"
+disabled = false
+format = """
+[\
+([ $added]($added_style) )\
+([ $deleted]($deleted_style) )\
+](bg:base fg:text)"""
 
 [jobs]
 format = '[ $symbol( $number) ]($style)'
-style = "bg:blue fg:crust"
+style = "bg:mantle fg:blue"
 
 [shell]
 bash_indicator = "󱆃"
 cmd_indicator = " "
 disabled = false
-fish_indicator = " "
+fish_indicator = "[ ](bg:crust fg:maroon)"
 format = '[ $indicator]($style)'
-nu_indicator = ""
-powershell_indicator = " "
-pwsh_indicator = "󰨊 "
-style = "fg:crust bg:lavender"
+nu_indicator = "[](bg:crust fg:green)"
+powershell_indicator = "[ ](bg:crust fg:blue)"
+pwsh_indicator = "[󰨊 ](bg:crust fg:blue)"
+style = "bg:crust fg:text"
 
 [line_break]
 disabled = true
@@ -159,11 +159,11 @@ vimcmd_symbol = '[❮](bold fg:green)'
 vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
-format = " in $duration "
+format = "[ in $duration ]($style)"
 min_time_to_notify = 45000
 show_milliseconds = true
 show_notifications = true
-style = "bg:lavender"
+style = "fg:overlay0"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
