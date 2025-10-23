@@ -100,11 +100,8 @@ deleted = "[ $count](bg:base fg:red)"
 diverged = "[(  $ahead_count)(  $behind_count)](bg:base fg:sky)"
 format = """
 [\
-($up_to_date )\
-($ahead )\
-($behind )\
+($ahead_behind )\
 ($conflicted )\
-($diverged )\
 ($stashed )\
 ($staged )\
 ($deleted )\
